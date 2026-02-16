@@ -8,6 +8,7 @@ Thumbs.db
 .brv/
 .agent/
 BYTEROVER_GUIDE.md
+AGENTS.md
 
 # dependencies
 node_modules/

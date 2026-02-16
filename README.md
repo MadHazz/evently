@@ -53,7 +53,6 @@ docker compose up -d postgres redis
 ### Root
 
 - `docker-compose.yml`
-- `AGENTS.md`
 
 ### Web (`apps/web`)
 
@@ -72,6 +71,15 @@ docker compose up -d postgres redis
 - `app.json`
 - `tsconfig.json`
 - `app/_layout.tsx`
+
+## Local Tooling Files (Ignored)
+
+The following files/directories are intentionally local-only and ignored by Git:
+
+- `.brv/`
+- `.agent/`
+- `BYTEROVER_GUIDE.md`
+- `AGENTS.md`
 
 ## Dependency Baseline
 
