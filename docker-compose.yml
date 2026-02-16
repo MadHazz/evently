@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: evently-postgres
+    environment:
+      POSTGRES_USER: evently
+      POSTGRES_PASSWORD: evently
+      POSTGRES_DB: evently
+    volumes:
+      - evently_postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: evently-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    container_name: evently-api
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://evently:evently@postgres:5432/evently
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3001:3000"
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+volumes:
+  evently_postgres:
