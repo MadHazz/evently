@@ -10,6 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
+# local tooling metadata
+.brv/
+.agent/
+BYTEROVER_GUIDE.md
+
 # testing
 /coverage
 
