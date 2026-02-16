@@ -9,8 +9,7 @@ services:
     volumes:
       - evently_postgres:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
-    restart: unless-stopped
+      - "5436:5432"
 
   redis:
     image: redis:7-alpine
@@ -21,8 +20,8 @@ services:
 
   api:
     build:
-      context: ./apps/api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: apps/api/Dockerfile
     container_name: evently-api
     environment:
       NODE_ENV: development

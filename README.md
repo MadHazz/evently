@@ -1,102 +1,76 @@
 # Evently
 
-Evently is a monorepo with two client apps:
+Evently is a monorepo containing:
 
-- `apps/web`: Next.js web app
-- `apps/mobile`: Expo React Native app
+- `apps/web`: Next.js web application
+- `apps/mobile`: Expo React Native application
+- `apps/api`: NestJS backend application
 
 ## Prerequisites
 
 - Node.js `20+`
-- `pnpm` (used by `apps/web`)
-- `npm` (used by `apps/mobile`)
-- Docker (optional, for local infra in `docker-compose.yml`)
+- `pnpm` (required for workspace management)
+- Docker (optional, for local infrastructure)
 
 ## Setup
 
-### 1. Web App
+### 1. Install Dependencies
+
+From the root directory:
 
 ```bash
-cd apps/web
 pnpm install
-pnpm dev
 ```
 
-Web runs at `http://localhost:3000`.
+### 2. Run Applications
 
-### 2. Mobile App
+You can run applications individually using the root scripts:
+
+#### Web App (`http://localhost:3000`)
 
 ```bash
-cd apps/mobile
-npm install
-npm start
+pnpm dev:web
 ```
 
-Useful alternatives:
+#### API (`http://localhost:3000` / `3001` depending on config)
 
 ```bash
-npm run ios
-npm run android
-npm run web
+pnpm dev:api
 ```
 
-### 3. Optional Local Infrastructure
+#### Mobile App
 
 ```bash
-docker compose up -d postgres redis
+pnpm dev:mobile
 ```
 
-`docker-compose.yml` also defines an `api` service that expects `apps/api` to exist. That folder is not present yet in the current repository snapshot.
+Then press `i` for iOS, `a` for Android, or `w` for Web.
 
-## Required Files (Current)
+### 3. Local Infrastructure
 
-### Root
+Start the database and redis:
 
-- `docker-compose.yml`
+```bash
+docker compose up -d
+```
 
-### Web (`apps/web`)
+> **Note**: Postgres runs on port `5436` to avoid conflicts with default port `5432`.
 
-- `package.json`
-- `pnpm-lock.yaml`
-- `pnpm-workspace.yaml`
-- `next.config.ts`
-- `tsconfig.json`
-- `app/layout.tsx`
-- `app/page.tsx`
+## Project Structure
 
-### Mobile (`apps/mobile`)
+### Apps
 
-- `package.json`
-- `package-lock.json`
-- `app.json`
-- `tsconfig.json`
-- `app/_layout.tsx`
+- `apps/web`: Frontend web application (Next.js)
+- `apps/mobile`: Mobile application (Expo)
+- `apps/api`: Backend API (NestJS)
 
-## Local Tooling Files (Ignored)
+### Infrastructure
 
-The following files/directories are intentionally local-only and ignored by Git:
+- `docker-compose.yml`: Defines `postgres`, `redis`, and `api` services.
 
-- `.brv/`
-- `.agent/`
-- `BYTEROVER_GUIDE.md`
-- `AGENTS.md`
+## Dependency Management
 
-## Dependency Baseline
+This project uses `pnpm` workspaces.
 
-### Web Runtime
-
-- `next@16.1.6`
-- `react@19.2.3`
-- `react-dom@19.2.3`
-
-### Mobile Runtime
-
-- `expo@~54.0.33`
-- `expo-router@~6.0.23`
-- `react@19.1.0`
-- `react-native@0.81.5`
-
-### Infra Images
-
-- `postgres:15`
-- `redis:7-alpine`
+- To add a dependency to a specific app: `pnpm add <package> --filter <app-name>`
+- To add a dev dependency to the root: `pnpm add -D <package> -w`
