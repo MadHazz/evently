@@ -56,3 +56,4 @@ expo-env.d.ts
 # generated mobile native folders
 apps/mobile/ios/
 apps/mobile/android/
+apps/api/src/generated

@@ -9,7 +9,8 @@
     "build:web": "pnpm --filter web build",
     "build:api": "pnpm --filter api build",
     "lint": "pnpm -r run lint",
-    "format": "pnpm -r run format"
+    "format": "pnpm -r run format",
+    "typecheck": "pnpm -r run typecheck"
   },
   "devDependencies": {
     "dotenv": "^17.3.1",
