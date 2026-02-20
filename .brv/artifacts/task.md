@@ -1,0 +1,36 @@
+# Project Analysis and Cleanup
+
+- [x] Analyze Project Structure <!-- id: 0 -->
+  - [x] Explore `apps/api` contents <!-- id: 1 -->
+  - [x] Explore `apps/web` contents <!-- id: 2 -->
+  - [x] Explore `apps/mobile` contents <!-- id: 3 -->
+  - [x] Analyze `docker-compose.yml` <!-- id: 4 -->
+- [x] Identify Duplicates and Errors <!-- id: 5 -->
+  - [x] Check for code duplication between apps <!-- id: 6 -->
+  - [x] Check for configuration errors <!-- id: 7 -->
+  - [x] Verify `api` directory status against README <!-- id: 8 -->
+- [x] Cleanup and Refactor <!-- id: 9 -->
+  - [x] Create root `package.json` <!-- id: 12 -->
+  - [x] Create `pnpm-workspace.yaml` <!-- id: 13 -->
+  - [x] Create `.npmrc` for hosting <!-- id: 14 -->
+  - [x] Remove individual app lockfiles and node_modules <!-- id: 11 -->
+  - [x] Update README <!-- id: 10 -->
+  - [x] Verify installation and build <!-- id: 15 -->
+- [x] Docker Configuration <!-- id: 16 -->
+  - [x] Update `docker-compose.yml` ports (Postgres: 5436) <!-- id: 17 -->
+  - [x] Update `apps/api/.env` for local development <!-- id: 18 -->
+  - [x] Configure `apps/web` to connect to Dockerized API <!-- id: 19 -->
+    - [x] Verify Docker build <!-- id: 20 -->
+    - [x] Fix API Port Conflict (Set to 3001) <!-- id: 33 -->
+- [ ] Phase 1: Code Quality & Safety <!-- id: 21 -->
+  - [x] Add `pnpm run typecheck` script to `apps/api` <!-- id: 22 -->
+  - [x] Verify ESLint configuration <!-- id: 23 -->
+  - [x] Implement `/health` and `/db-check` endpoints <!-- id: 24 -->
+- [x] Phase 2: Testing <!-- id: 25 -->
+  - [x] Verify Jest unit test configuration <!-- id: 26 -->
+  - [x] Verify Jest E2E test configuration <!-- id: 27 -->
+  - [x] Run unit tests (`pnpm test`) <!-- id: 28 -->
+    - [x] Run E2E tests (`pnpm test:e2e`) <!-- id: 29 -->
+- [x] Project Maintenance: Context Persistence <!-- id: 30 -->
+  - [x] Update `.brv` directory with current artifacts <!-- id: 31 -->
+  - [x] Remove `.brv` and `BYTEROVER_GUIDE.md` from `.gitignore` <!-- id: 32 -->

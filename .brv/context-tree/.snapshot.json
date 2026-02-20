@@ -1,0 +1,54 @@
+{
+  "createdAt": "2026-02-20T01:58:11.175Z",
+  "files": {
+    "authentication/context.md": {
+      "hash": "bec1e2a2e83a1a99258f77ceec64e30a143310177860c55c7ff76fe62311d22c",
+      "size": 257
+    },
+    "authentication/baseline/initial_auth_state.md": {
+      "hash": "ce013359f81dc199d9c93be73c5ef86e169888e1678c81163c3048a8a935dff7",
+      "size": 925
+    },
+    "structure/context.md": {
+      "hash": "70f68c127d17e144273c44f169c4457cf51d5d4b4e60559f4ee74d40736557a0",
+      "size": 275
+    },
+    "authentication/baseline/initial_state.md": {
+      "hash": "4798dbae32d47226412314a815bcbafdc4487138bd09d2750bf310545bf1f6eb",
+      "size": 966
+    },
+    "structure/governance/context.md": {
+      "hash": "29a50bfc00b25a8886f07e74acbb5a80f8f43539269f263bf483593f4bfcb5a0",
+      "size": 250
+    },
+    "structure/governance/byterover_workflow.md": {
+      "hash": "ec15a729c97eec897d89f61822efcfb8a81f5286054f4762038f844f6f0ac19e",
+      "size": 855
+    },
+    "structure/infrastructure/docker_configuration.md": {
+      "hash": "88333c483b422c3b7490db55450e0640d575f6b9b812aebdca9e19601a44dc0a",
+      "size": 422
+    },
+    "structure/overview/project_baseline.md": {
+      "hash": "3a306b1ddde39cbc83796a6ab15aaa22ea7acc60f87ba459eee3d974f2f45b54",
+      "size": 812
+    },
+    "authentication/baseline/context.md": {
+      "hash": "b1524e2e0db417bf579b78ffef7baecf9324cfed81ea462af1429b3f94b8db2d",
+      "size": 152
+    },
+    "structure/infrastructure/context.md": {
+      "hash": "68a966ba2cb07dbaf1e203300b2c4fb48e984b2b3e14c432e36cca1d6ee8a87f",
+      "size": 140
+    },
+    "structure/overview/context.md": {
+      "hash": "783a09f4b43373044d4fc5d91b9b5d0706cf85371d112bbad3645e0ece501898",
+      "size": 187
+    },
+    "structure/overview/repository_structure.md": {
+      "hash": "8cd78855908cabdaa3dbfba497122ce92d655ad78dd619c995d97ddbd5634460",
+      "size": 1364
+    }
+  },
+  "version": 1
+}

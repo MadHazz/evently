@@ -4,9 +4,7 @@
 node_modules/
 
 # local tooling metadata
-.brv/
 .agent/
-BYTEROVER_GUIDE.md
 AGENTS.md
 
 # Expo

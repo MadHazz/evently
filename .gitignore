@@ -5,9 +5,7 @@ Thumbs.db
 .vscode/
 
 # local tooling metadata
-.brv/
 .agent/
-BYTEROVER_GUIDE.md
 AGENTS.md
 
 # dependencies
