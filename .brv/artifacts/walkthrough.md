@@ -39,6 +39,18 @@ The project has been successfully converted to a pnpm monorepo.
 - **Generate Client**: `docker compose exec api pnpm --filter api exec prisma generate` (automatically runs after migration)
 - **Studio**: `docker compose exec api pnpm --filter api exec prisma studio` (runs on port 5555, map it in docker-compose if needed)
 
+## What We Built So Far
+
+### Core Infrastructure & Architecture (Phases 1-3)
+
+- **Dockerized Services**: PostgreSQL running on port `5436` and Redis inside Docker.
+- **Monorepo Ready**: API, Web, and Mobile apps configured in the `evently` monorepo using `pnpm`.
+- **Database ORM**: Prisma generating native client.
+- **Code Quality**: Prettier, ESLint, and TypeScript configured for `api`.
+- **Testing Confidence**: Jest unit & E2E configuring. Isolated test databases leveraging `.env.test`.
+- **Authentication**: JWT authentication with `bcrypt` password hashing. Registration and Login flow tested.
+- **Organizations**: Simple multi-tenant logic. Users can create organizations and are automatically assigned as `OWNER`.
+
 ### Testing
 
 - **Unit Tests**: `pnpm -r run test` or `pnpm --filter api test`

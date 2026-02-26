@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/client"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -23,6 +22,7 @@ model User {
   updatedAt DateTime @updatedAt
 
   memberships OrgMember[]
+  orders      Order[]
 }
 
 model Org {
@@ -32,6 +32,7 @@ model Org {
   createdAt DateTime @default(now())
 
   members OrgMember[]
+  events  Event[]
 }
 
 model OrgMember {
@@ -47,4 +48,77 @@ model OrgMember {
   @@unique([orgId, userId])
   @@index([orgId])
   @@index([userId])
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  orgId       String
+  title       String
+  description String?
+  startDate   DateTime
+  endDate     DateTime
+  location    String?
+  status      String   @default("DRAFT") // DRAFT, PUBLISHED, CANCELLED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  org         Org          @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  ticketTypes TicketType[]
+  orders      Order[]
+
+  @@index([orgId])
+}
+
+model TicketType {
+  id          String   @id @default(uuid())
+  eventId     String
+  name        String   // e.g. "Early Bird", "VIP"
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  quantity    Int      // Total inventory available
+  startDate   DateTime? // When sales start
+  endDate     DateTime? // When sales end
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  event   Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  tickets Ticket[]
+
+  @@index([eventId])
+}
+
+model Order {
+  id            String   @id @default(uuid())
+  eventId       String
+  userId        String?  // Optional for guest checkout
+  customerEmail String
+  customerName  String?
+  totalAmount   Decimal  @db.Decimal(10, 2)
+  status        String   @default("PENDING") // PENDING, PAID, CANCELLED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  event   Event    @relation(fields: [eventId], references: [id], onDelete: Restrict)
+  user    User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  tickets Ticket[]
+
+  @@index([eventId])
+  @@index([userId])
+}
+
+model Ticket {
+  id           String   @id @default(uuid())
+  orderId      String
+  ticketTypeId String
+  qrCode       String   @unique @default(uuid()) // UUID for scanner
+  status       String   @default("VALID") // VALID, USED, CANCELLED
+  scannedAt    DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  order      Order      @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  ticketType TicketType @relation(fields: [ticketTypeId], references: [id], onDelete: Restrict)
+
+  @@index([orderId])
+  @@index([ticketTypeId])
 }

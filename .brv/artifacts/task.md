@@ -34,3 +34,7 @@
 - [x] Project Maintenance: Context Persistence <!-- id: 30 -->
   - [x] Update `.brv` directory with current artifacts <!-- id: 31 -->
   - [x] Remove `.brv` and `BYTEROVER_GUIDE.md` from `.gitignore` <!-- id: 32 -->
+- [x] Phase 3: Authentication & Organizations <!-- id: 34 -->
+  - [x] Implement Auth module (Registration, Login, JWT) <!-- id: 35 -->
+  - [x] Implement Org module (Creation, Memberships) <!-- id: 36 -->
+  - [x] Add unit and E2E tests for Auth & Org modules <!-- id: 37 -->

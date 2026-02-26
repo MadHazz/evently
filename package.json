@@ -10,7 +10,9 @@
     "build:api": "pnpm --filter api build",
     "lint": "pnpm -r run lint",
     "format": "pnpm -r run format",
-    "typecheck": "pnpm -r run typecheck"
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "test:e2e": "pnpm -r run test:e2e"
   },
   "devDependencies": {
     "dotenv": "^17.3.1",

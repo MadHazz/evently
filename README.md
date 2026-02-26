@@ -56,6 +56,33 @@ docker compose up -d
 
 > **Note**: Postgres runs on port `5436` to avoid conflicts with default port `5432`.
 
+### 4. Running Tests
+
+Tests are managed at the root level via pnpm recursive execution.
+
+Run unit tests for all apps:
+
+```bash
+pnpm test
+```
+
+Run end-to-end (E2E) tests for all apps:
+
+```bash
+pnpm test:e2e
+```
+
+## Project Status
+
+We have completed the following core backend phases:
+
+- **Phase 1**: Code Quality (ESLint, Prettier, Typescript)
+- **Phase 2**: Testing setup (Jest unit + E2E with Postgres test DB)
+- **Phase 3**: Authentication & Organizations (JWT, org scoping)
+- **Phase 4**: Event & Ticket Core (Inventory, checkout transaction)
+
+We are currently working on **Phase 5**: Mobile Check-In System capabilities.
+
 ## Project Structure
 
 ### Apps

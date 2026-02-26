@@ -42,9 +42,7 @@ brv query "How is authentication implemented?"
 3. Curate important knowledge after changes:
 
 ```bash
-brv curate "Auth uses JWT in middleware; refresh token rotation in auth service." \
-  --files apps/api/src/middleware/auth.ts \
-  --files apps/api/src/services/auth.service.ts
+brv curate "Auth uses JWT in middleware; refresh token rotation in auth service." @apps/api/src/middleware/auth.ts @apps/api/src/services/auth.service.ts
 ```
 
 4. Push local context tree to ByteRover cloud:

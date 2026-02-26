@@ -1,5 +1,5 @@
 # Start from Node 20
-FROM node:20-alpine
+FROM node:20-alpine AS base
 
 WORKDIR /app
 
@@ -21,8 +21,11 @@ COPY apps/api ./apps/api
 # Generate Prisma Client
 RUN pnpm --filter api exec prisma generate
 
+# Build the NestJS app
+RUN pnpm --filter api run build
+
 # Expose port
 EXPOSE 3000
 
-# Start development server
-CMD ["pnpm", "--filter", "api", "start:dev"]
+# Start production server
+CMD ["node", "apps/api/dist/src/main.js"]
